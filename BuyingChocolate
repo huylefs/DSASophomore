@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(int m, int p, int w, int &tmp, int &ans){
+	if(m == 0 || m < p) return;
+	tmp++;
+	ans++;
+	if(tmp == w){
+		tmp = 0;
+		ans++;
+		tmp++;
+	}
+	solve(m - p, p, w, tmp, ans);
+}
+int main(){
+	int ans = 0;
+	int tmp = 0;
+	int m, p, w;
+	cin >> m >> p >> w;
+	solve(m, p, w, tmp, ans);
+	cout << ans;
+}
